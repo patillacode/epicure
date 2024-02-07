@@ -1,10 +1,22 @@
-## epicure
+# epicure
 
+```md
+epicure | ˈɛpɪkjʊə, ˈɛpɪkjɔː |
+
+noun
+
+a person who takes particular pleasure in fine food and drink.
+```
 
 ### What?
 
+`epicure` is a collection of useful python methods and utils I tend to use in my personal projects.
+
 
 ### Why?
+
+I like to keep my projects as lean as possible, and I don't like to add dependencies unless strictly necessary.
+I usually end up writing the same little utils over and over again, so I decided to create a centralized place where I can keep them.
 
 
 ### Installation
