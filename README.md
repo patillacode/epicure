@@ -1,6 +1,6 @@
 | Latest Version | Downloads | Tests |
 |----------------|-----------|-------|
-| [![PyPI version](https://badge.fury.io/py/epicure.svg)](https://badge.fury.io/py/epicure) | [![Downloads](https://pepy.tech/badge/epicure)](https://pepy.tech/project/epicure) | [![cov](https://raw.githubusercontent.com/patillacode/epicure/main/coverage.svg)](https://github.com/patillacode/epicure/actions) |
+| [![PyPI version](https://badge.fury.io/py/epicure-utils.svg)](https://badge.fury.io/py/epicure-utils) | [![Downloads](https://pepy.tech/badge/epicure-utils)](https://pepy.tech/project/epicure-utils) | [![cov](https://raw.githubusercontent.com/patillacode/epicure/main/coverage.svg)](https://github.com/patillacode/epicure/actions) |
 
 # epicure
 
@@ -28,10 +28,10 @@ I usually end up writing the same little utils over and over again, so I decided
 #### Plug & Play:
 ```bash
 # Install via pipx
-pipx install epicure
+pipx install epicure-utils
 
 # Install via pip
-pip install epicure
+pip install epicure-utils
 ```
 
 #### Install for development:
