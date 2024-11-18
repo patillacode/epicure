@@ -15,7 +15,7 @@ a person who takes particular pleasure in fine food and drink.
 
 ### Why?
 
-I like to keep my projects as lean as possible, and I don't like to add dependencies unless strictly necessary.
+I like to keep my projects as clean as possible, and I don't like to add dependencies unless strictly necessary.
 I usually end up writing the same little utils over and over again, so I decided to create a centralized place where I can keep them.
 
 
@@ -57,13 +57,43 @@ Before using epicure, ensure you have the following installed:
 
 
 ### Usage
+Once installed you can import the package and use the methods as you would with any other python package.
+
+Simple example:
+
+```python
+from epicure.output import colored_print
+
+colored_print("Hello, World!", fg_color="magenta", bg_color="black")
+
+# this will print a "Hello, World!" in your terminal
+# foreground color will be magenta and background color will be black (if supported by your terminal)
+```
+
+Refer to the rest of the documentation for more details on the available methods.
+
+To see an interactive example, run the following command:
+
+```bash
+python -m demo.demo
+```
 
 
 ### Features
+- Simple and useful methods for everyday use.
+- The package is organized in modules, so you can import only the methods you need.
+- Customizable output with colored print.
+- Input validation for the classic "yes/no" questions.
+- Simple and Mulit-choice questions.
+- Interactive multi-choice questions using `curses` (works on Linux and macOS).
+- And more to come...
 
+
+### Known Issues
+`multi_choice_question_interactive` does not work on Windows by default. You need to install the `windows-curses` package to use it on Windows.
 
 ### Acknowledgments
-
+- Python community, for the amazing libraries and tools they provide.
 
 ### Contributing
 
@@ -74,5 +104,4 @@ If you have a feature request, bug report, or a pull request, please open an iss
 
 ### License
 
-epicure is released under ...
-
+epicure is released under [MIT License](LICENSE).

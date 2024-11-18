@@ -1,3 +1,4 @@
+# python
 __pycache__/
 *.py[cod]
 *.class
@@ -17,5 +18,12 @@ __pycache__/
 !env.sample
 .venv
 venv
+
+# pypi
+dist
+build
+
+# custom autoenv files
 .autoenv.sh
 .autoenv_leave.sh
+
