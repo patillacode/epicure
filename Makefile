@@ -37,11 +37,19 @@ push:
 	@$(GIT) push origin $(shell $(GIT) rev-parse --abbrev-ref HEAD)
 	@$(GIT) push --tags
 
+install: create-venv upgrade-pip dev-requirements install-package
+
+# tests
 test:
 	$(info Running tests...)
 	pytest -x
 
-install: create-venv upgrade-pip dev-requirements install-package
+coverage-report:
+	coverage run -m pytest -x
+	coverage json -o "coverage-summary.json"
+	coverage report -m
+
+
 
 # requirements
 build-dev-requirements:

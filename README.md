@@ -1,3 +1,7 @@
+| Latest Version | Downloads | Tests |
+|----------------|-----------|-------|
+| [![PyPI version](https://badge.fury.io/py/epicure.svg)](https://badge.fury.io/py/epicure) | [![Downloads](https://pepy.tech/badge/epicure)](https://pepy.tech/project/epicure) | [![cov](https://raw.githubusercontent.com/patillacode/epicure/main/coverage.svg)](https://github.com/patillacode/epicure/actions) |
+
 # epicure
 
 ```md
@@ -46,7 +50,7 @@ make install
 
 python -m venv venv
 source venv/bin/activate
-pip install -r requirements.txt
+pip install -e .
 ```
 
 #### System Requirements
@@ -70,9 +74,7 @@ colored_print("Hello, World!", fg_color="magenta", bg_color="black")
 # foreground color will be magenta and background color will be black (if supported by your terminal)
 ```
 
-Refer to the rest of the documentation for more details on the available methods.
-
-To see an interactive example, run the following command:
+To see an interactive example of all the things available, run the following command:
 
 ```bash
 python -m demo.demo

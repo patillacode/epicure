@@ -27,3 +27,7 @@ build
 .autoenv.sh
 .autoenv_leave.sh
 
+# coverage
+.coverage
+coverage-summary.json
+htmlcov/
