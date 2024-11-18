@@ -104,4 +104,4 @@ If you have a feature request, bug report, or a pull request, please open an iss
 
 ### License
 
-epicure is released under [MIT License](LICENSE).
+epicure is released under [GNU GENERAL PUBLIC LICENSE Version 3](LICENSE).
