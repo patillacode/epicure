@@ -4,8 +4,6 @@
 #
 #    pip-compile --output-file=requirements/test.txt requirements/test.in
 #
-anyio==4.6.2.post1
-    # via httpx
 asttokens==2.4.1
     # via icecream
 backports-tarfile==1.2.0
@@ -15,50 +13,37 @@ build==1.2.2.post1
     #   -r /Users/dvitto/projects/epicure/requirements/development.in
     #   pip-tools
 certifi==2024.8.30
-    # via
-    #   httpcore
-    #   httpx
+    # via requests
 cfgv==3.4.0
     # via pre-commit
+charset-normalizer==3.4.0
+    # via requests
 click==8.1.7
     # via
-    #   hatch
     #   pip-tools
     #   pytest-click
-    #   userpath
 colorama==0.4.6
     # via icecream
 coverage==7.6.7
     # via -r requirements/test.in
 distlib==0.3.9
     # via virtualenv
+docutils==0.21.2
+    # via readme-renderer
 executing==2.1.0
     # via icecream
 filelock==3.16.1
     # via virtualenv
-h11==0.14.0
-    # via httpcore
-hatch==1.13.0
-    # via -r /Users/dvitto/projects/epicure/requirements/development.in
-hatchling==1.26.3
-    # via hatch
-httpcore==1.0.7
-    # via httpx
-httpx==0.27.2
-    # via hatch
-hyperlink==21.0.0
-    # via hatch
 icecream==2.1.3
     # via -r /Users/dvitto/projects/epicure/requirements/development.in
 identify==2.6.2
     # via pre-commit
 idna==3.10
-    # via
-    #   anyio
-    #   httpx
-    #   hyperlink
+    # via requests
 importlib-metadata==8.5.0
-    # via keyring
+    # via
+    #   keyring
+    #   twine
 iniconfig==2.0.0
     # via pytest
 jaraco-classes==3.4.0
@@ -68,7 +53,7 @@ jaraco-context==6.0.1
 jaraco-functools==4.1.0
     # via keyring
 keyring==25.5.0
-    # via hatch
+    # via twine
 markdown-it-py==3.0.0
     # via rich
 mdurl==0.1.2
@@ -77,35 +62,28 @@ more-itertools==10.5.0
     # via
     #   jaraco-classes
     #   jaraco-functools
+nh3==0.2.18
+    # via readme-renderer
 nodeenv==1.9.1
     # via pre-commit
 packaging==24.2
     # via
     #   build
-    #   hatch
-    #   hatchling
     #   pytest
-pathspec==0.12.1
-    # via hatchling
-pexpect==4.9.0
-    # via hatch
 pip-tools==7.4.1
     # via -r /Users/dvitto/projects/epicure/requirements/development.in
+pkginfo==1.10.0
+    # via twine
 platformdirs==4.3.6
-    # via
-    #   hatch
-    #   virtualenv
+    # via virtualenv
 pluggy==1.5.0
-    # via
-    #   hatchling
-    #   pytest
+    # via pytest
 pre-commit==4.0.1
     # via -r /Users/dvitto/projects/epicure/requirements/development.in
-ptyprocess==0.7.0
-    # via pexpect
 pygments==2.18.0
     # via
     #   icecream
+    #   readme-renderer
     #   rich
 pyproject-hooks==1.2.0
     # via
@@ -124,36 +102,32 @@ python-dotenv==1.0.1
     # via -r /Users/dvitto/projects/epicure/requirements/development.in
 pyyaml==6.0.2
     # via pre-commit
+readme-renderer==44.0
+    # via twine
+requests==2.32.3
+    # via
+    #   requests-toolbelt
+    #   twine
+requests-toolbelt==1.0.0
+    # via twine
+rfc3986==2.0.0
+    # via twine
 rich==13.9.4
-    # via hatch
-shellingham==1.5.4
-    # via hatch
+    # via twine
 six==1.16.0
     # via asttokens
-sniffio==1.3.1
+twine==5.1.1
+    # via -r /Users/dvitto/projects/epicure/requirements/development.in
+urllib3==2.2.3
     # via
-    #   anyio
-    #   httpx
-tomli-w==1.1.0
-    # via hatch
-tomlkit==0.13.2
-    # via hatch
-trove-classifiers==2024.10.21.16
-    # via hatchling
-userpath==1.9.2
-    # via hatch
-uv==0.5.2
-    # via hatch
+    #   requests
+    #   twine
 virtualenv==20.27.1
-    # via
-    #   hatch
-    #   pre-commit
+    # via pre-commit
 wheel==0.45.0
     # via pip-tools
 zipp==3.21.0
     # via importlib-metadata
-zstandard==0.23.0
-    # via hatch
 
 # The following packages are considered to be unsafe in a requirements file:
 # pip

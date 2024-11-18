@@ -3,7 +3,6 @@ VENV = venv/bin/
 PYTHON = $(VENV)python
 PIP = $(VENV)pip
 GIT = git
-HATCH = $(VENV)hatch
 
 .PHONY: demo install reset-requirements
 
@@ -90,18 +89,39 @@ test-requirements: build-test-requirements install-test-requirements
 reset-requirements: delete-requirements-txt build-requirements
 
 # Pypi
+# test-pypi-release:
+# 	$(info Removing old build...)
+# 	rm -rf dist/
+# 	rm -rf *.egg-info/
+# 	$(info Building new version...)
+# 	@$(PYTHON) -m build
+# 	$(info Publishing to test.pypi.org...)
+# 	@$(HATCH) publish --repo https://test.pypi.org/legacy/
+
+# pypi-release:
+# 	$(info Removing old build...)
+# 	rm -rf dist/
+# 	$(info Building new version...)
+# 	python -m build
+# 	$(info Publishing to pypi.org...)
+# 	@$(HATCH) publish
+
 test-pypi-release:
 	$(info Removing old build...)
-	rm -rf dist/
+	rm -rf dist/ build/ *.egg-info/
+	$(info Make sure to have the latest version of build & twine...)
+	@$(PYTHON) -m pip install --upgrade build twine
 	$(info Building new version...)
 	@$(PYTHON) -m build
 	$(info Publishing to test.pypi.org...)
-	@$(HATCH) publish --repo https://test.pypi.org/legacy/
+	@$(PYTHON) -m twine upload --repository testpypi dist/* --verbose
 
 pypi-release:
 	$(info Removing old build...)
-	rm -rf dist/
+	rm -rf dist/ build/ *.egg-info/
+	$(info Make sure to have the latest version of build & twine...)
+	@$(PYTHON) -m pip install --upgrade build twine
 	$(info Building new version...)
-	python -m build
+	@$(PYTHON) -m build
 	$(info Publishing to pypi.org...)
-	@$(HATCH) publish
+	@$(PYTHON) -m twine upload dist/* --verbose
