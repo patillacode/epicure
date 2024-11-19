@@ -38,7 +38,7 @@ push:
 	@$(GIT) push origin $(shell $(GIT) rev-parse --abbrev-ref HEAD)
 	@$(GIT) push --tags
 
-install: create-venv upgrade-pip dev-requirements install-package
+install: create-venv upgrade-pip install-development-requirements install-package
 
 # tests
 test:

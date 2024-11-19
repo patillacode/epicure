@@ -20,7 +20,8 @@ a person who takes particular pleasure in fine food and drink.
 ### Why?
 
 I like to keep my projects as clean as possible, and I don't like to add dependencies unless strictly necessary.
-I usually end up writing the same little utils over and over again, so I decided to create a centralized place where I can keep them.
+
+I usually end up writing the same little utils over and over again, so I decided to create a centralized place where I can keep them organized and ready to use in any project I'm working on.
 
 
 ### Installation
@@ -80,16 +81,58 @@ To see an interactive example of all the things available, run the following com
 python -m epicure.demo
 ```
 
+For a more detailed explanation of the available methods, check the full [documentation](https://patillacode.github.io/epicure/).
+
 
 ### Features
 - Simple and useful methods for everyday use.
 - The package is organized in modules, so you can import only the methods you need.
-- Customizable output with colored print.
-- Input validation for the classic "yes/no" questions.
-- Simple and Mulit-choice questions.
-- Interactive multi-choice questions using `curses` (works on Linux and macOS).
-- And more to come...
+- No dependencies other than the Python standard library.
 
+#### Available Modules and Methods
+
+##### `output`
+- `colored_print`: Print colored text in the terminal.
+
+----
+
+##### `input`
+- `ask_yes_no_question`: Ask the user a yes/no question.
+- `multi_choice_question`: Ask the user to choose one option from a list of choices.
+- `multi_choice_question_interactive`: Ask the user to choose multiple options from a list of choices. (works on Linux and macOS)
+- `simple_choice_question`: Ask the user to choose multiple options from a list of choices using an interactive menu.
+
+----
+
+**And more to come...!**
+
+
+### Testing
+To run the tests, you can use the following command:
+
+```bash
+make test
+# or
+pytest
+```
+
+As for the coverage, you can run the following command:
+
+```bash
+make coverage
+# or
+coverage run -m pytest -x
+coverage json -o "coverage-summary.json"
+coverage report -m
+```
+
+Remember to install the testing dependencies before running the tests!
+
+```bash
+make install-test-requirements
+# or
+pip install -r install -r requirements/test.txt
+```
 
 ### Known Issues
 `multi_choice_question_interactive` does not work on Windows by default. You need to install the `windows-curses` package to use it on Windows.
@@ -98,7 +141,6 @@ python -m epicure.demo
 - Python community, for the amazing libraries and tools they provide.
 
 ### Contributing
-
 Contributions are welcome!
 
 If you have a feature request, bug report, or a pull request, please open an issue or submit a PR.
