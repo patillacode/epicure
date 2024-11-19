@@ -81,7 +81,17 @@ To see an interactive example of all the things available, run the following com
 python -m epicure.demo
 ```
 
-For a more detailed explanation of the available methods, check the full [documentation](https://patillacode.github.io/epicure/).
+### Documentation
+
+The documentation is generated using Sphinx.
+
+Please generate the documentation by running the following command:
+
+```bash
+make documentation
+```
+
+The documentation will be available in the `docs` folder, open the `index.html` file in your browser to see the documentation.
 
 
 ### Features
