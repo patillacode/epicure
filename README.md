@@ -81,16 +81,20 @@ To see an interactive example of all the things available, run the following com
 python -m epicure.demo
 ```
 
+For a more detailed explanation of the available methods, check the full [documentation](https://patillacode.github.io/epicure/).
+
 
 ### Features
 - Simple and useful methods for everyday use.
 - The package is organized in modules, so you can import only the methods you need.
-- No dependencies.
+- No dependencies other than the Python standard library.
 
 #### Available Modules and Methods
 
 ##### `output`
 - `colored_print`: Print colored text in the terminal.
+
+----
 
 ##### `input`
 - `ask_yes_no_question`: Ask the user a yes/no question.
@@ -98,6 +102,7 @@ python -m epicure.demo
 - `multi_choice_question_interactive`: Ask the user to choose multiple options from a list of choices. (works on Linux and macOS)
 - `simple_choice_question`: Ask the user to choose multiple options from a list of choices using an interactive menu.
 
+----
 
 **And more to come...!**
 
@@ -121,6 +126,13 @@ coverage json -o "coverage-summary.json"
 coverage report -m
 ```
 
+Remember to install the testing dependencies before running the tests!
+
+```bash
+make install-test-requirements
+# or
+pip install -r install -r requirements/test.txt
+```
 
 ### Known Issues
 `multi_choice_question_interactive` does not work on Windows by default. You need to install the `windows-curses` package to use it on Windows.
