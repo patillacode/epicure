@@ -62,8 +62,9 @@ jobs:
           pip install -e .
       - name: Generate coverage
         run: |
-          pytest --cov=epicure --cov-report=xml
-          coverage report
+          coverage run -m pytest -x
+          coverage json -o "coverage-summary.json"
+          coverage report -m
       - name: Generate badge
         uses: tj-actions/coverage-badge-py@v2
         with:
