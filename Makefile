@@ -1,8 +1,10 @@
-PYTHON_GLOBAL = python
-VENV = venv/bin/
-PYTHON = $(VENV)python
-PIP = $(VENV)pip
+COVERAGE = $(VENV)coverage
 GIT = git
+PIP = $(VENV)pip
+PYTEST = $(VENV)pytest
+PYTHON = $(VENV)python
+PYTHON_GLOBAL = python3
+VENV = venv/bin/
 
 .PHONY: demo install reset-requirements
 
@@ -41,12 +43,12 @@ install: create-venv upgrade-pip dev-requirements install-package
 # tests
 test:
 	$(info Running tests...)
-	pytest -x
+	@$(PYTEST) -x
 
 coverage-report:
-	coverage run -m pytest -x
-	coverage json -o "coverage-summary.json"
-	coverage report -m
+	@$(COVERAGE) run -m pytest -x
+	@$(COVERAGE) json -o "coverage-summary.json"
+	@$(COVERAGE) report -m
 
 
 
