@@ -13,7 +13,7 @@ jobs:
     strategy:
       fail-fast: false  # Continue running other versions if one fails
       matrix:
-        python-version: ["3.10", "3.11", "3.12", "3.13-dev"]
+        python-version: ["3.10", "3.11", "3.12", "3.13"]
 
     steps:
       - uses: actions/checkout@v4
@@ -62,7 +62,10 @@ jobs:
           pip install -e .
 
       - name: Generate coverage
-        run: make coverage-report
+        run: |
+          coverage run -m pytest -x
+          coverage json -o "coverage-summary.json"
+          coverage report -m
 
       - name: Generate coverage badge
         uses: tj-actions/coverage-badge-py@v2
