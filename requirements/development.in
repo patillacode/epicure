@@ -5,4 +5,7 @@ icecream
 pip-tools
 pre-commit
 python-dotenv
+sphinx
+sphinx-autodoc-typehints
+sphinx-rtd-theme
 twine

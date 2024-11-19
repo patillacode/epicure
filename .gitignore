@@ -31,3 +31,6 @@ build
 .coverage
 coverage-summary.json
 htmlcov/
+
+# Sphinx build directory
+docs/_build/

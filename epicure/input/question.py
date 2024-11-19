@@ -15,16 +15,50 @@ def ask_yes_no_question(
     """
     Ask the user a yes/no question.
 
-    Parameters:
-    - prompt (str): The question to ask the user.
-    - default (str): The default answer if the user just presses Enter.
-    - case_sensitive (bool): Whether the response should be case-sensitive.
-    - prompt_fg_color (str): The foreground color of the prompt text.
-    - prompt_bg_color (str): The background color of the prompt text.
-    - error_message (str): The message to display if the user enters an invalid response.
+    :param prompt: The question to ask the user.
+    :type prompt: str
+    :param default: The default answer if the user just presses Enter.
+    :type default: str
+    :param case_sensitive: Whether the response should be case-sensitive.
+    :type case_sensitive: bool
+    :param prompt_fg_color: The foreground color of the prompt text.
+    :type prompt_fg_color: str
+    :param prompt_bg_color: The background color of the prompt text.
+    :type prompt_bg_color: str
+    :param error_message: The message to display if the user enters an invalid response.
+    :type error_message: str
 
-    Returns:
-    - bool: True if the user answers 'yes', False if the user answers 'no'.
+    :return: 'True' if the user answers 'yes', 'False' if the user answers 'no'.
+    :rtype: bool
+
+    :raises:
+        ValueError: If the default parameter is neither "yes" nor "no".
+
+    :examples:
+        >>> result = ask_yes_no_question("Do you want to proceed?")
+        Do you want to proceed? [Y/n]: yes
+        >>> print(result)
+        True
+
+        >>> result = ask_yes_no_question("Continue?", default="no")
+        Continue? [y/N]: n
+        >>> print(result)
+        False
+
+        >>> result = ask_yes_no_question("Continue?", case_sensitive=True)
+        Continue? [Y/n]: Y
+        >>> print(result)
+        True
+
+        >>> result = ask_yes_no_question("Continue?", default="maybe")
+        Traceback (most recent call last):
+        ...
+        ValueError: Invalid default answer. Must be 'yes' or 'no'.
+
+        >>> result = ask_yes_no_question("Continue?", error_message="Invalid response.")
+        Continue? [Y/n]: maybe
+        Invalid response.
+        Continue? [Y/n]:
     """
 
     valid_yes = ["yes", "y"]
@@ -65,14 +99,38 @@ def simple_choice_question(
     """
     Ask the user to choose one option from a list of choices.
 
-    Parameters:
-    - prompt (str): The question to ask the user.
-    - choices (list): The list of choices to present to the user.
-    - prompt_fg_color (str): The foreground color of the prompt text.
-    - prompt_bg_color (str): The background color of the prompt text.
+    :param prompt: The question to ask the user.
+    :type prompt: str
+    :param choices: The list of choices to present to the user.
+    :type choices: list
+    :param prompt_fg_color: The foreground color of the prompt text.
+    :type prompt_fg_color: str
+    :param prompt_bg_color: The background color of the prompt text.
+    :type prompt_bg_color: str
 
-    Returns:
-    - str: The chosen option.
+    :return: The chosen option.
+    :rtype: str
+
+    :examples:
+        >>> result = simple_choice_question("Choose a color:", ["red", "green", "blue"])
+        Choose a color:
+        1. red
+        2. green
+        3. blue
+        Enter the number of your choice: 2
+        >>> print(result)
+        "green"
+
+        >>> result = simple_choice_question("Choose a color:", ["red", "green", "blue"])
+        Choose a color:
+        1. red
+        2. green
+        3. blue
+        Enter the number of your choice: 4
+        Invalid choice. Please enter a number corresponding to one of the options.
+        Enter the number of your choice: 1
+        >>> print(result)
+        "red"
     """
     while True:
         colored_print(prompt, fg_color=prompt_fg_color, bg_color=prompt_bg_color)
@@ -97,14 +155,58 @@ def multi_choice_question(
     """
     Ask the user to choose multiple options from a list of choices.
 
-    Parameters:
-    - prompt (str): The question to ask the user.
-    - choices (list): The list of choices to present to the user.
-    - prompt_fg_color (str): The foreground color of the prompt text.
-    - prompt_bg_color (str): The background color of the prompt text.
+    :param prompt: The question to ask the user.
+    :type prompt: str
+    :param choices: The list of choices to present to the user.
+    :type choices: list
+    :param prompt_fg_color: The foreground color of the prompt text.
+    :type prompt_fg_color: str
+    :param prompt_bg_color: The background color of the prompt text.
+    :type prompt_bg_color: str
+    :return: The list of chosen options.
+    :rtype: list
 
-    Returns:
-    - list: The list of chosen options.
+    :examples:
+        >>> result = multi_choice_question_interactive(
+        ...     "Choose your favorite colors:",
+        ...     ["red", "green", "blue"]
+        ... )
+        Choose your favorite colors:
+        1. red
+        2. green
+        3. blue
+        Enter the number of your choice (or press Enter to finish): 2
+        1. red
+        2. green [x]
+        3. blue
+        Enter the number of your choice (or press Enter to finish): 3
+        1. red
+        2. green [x]
+        3. blue [x]
+        Enter the number of your choice (or press Enter to finish):
+        >>> print(result)
+        ["green", "blue"]
+
+        >>> result = multi_choice_question_interactive(
+        ...     "Choose your favorite colors:",
+        ...     ["red", "green", "blue"]
+        ... )
+        Choose your favorite colors:
+        1. red
+        2. green
+        3. blue
+        Enter the number of your choice (or press Enter to finish): 4
+        Invalid choice.
+        Please enter a number corresponding to one of the options.
+        Enter the number of your choice (or press Enter to finish): 2
+        1. red
+        2. green [x]
+        3. blue
+        Enter the number of your choice (or press Enter to finish): 2
+        1. red
+        2. green [x]
+        3. blue [x]
+        Enter the number of your choice (or press Enter to finish):
     """
     selected_choices = []
     while True:
@@ -150,19 +252,79 @@ def multi_choice_question_interactive(
     menu.
 
     Parameters:
-    - prompt (str): The question to ask the user.
-    - choices (list): The list of choices to present to the user.
-    - prompt_fg_color (str): The foreground color of the prompt text.
-    - prompt_bg_color (str): The background color of the prompt text.
-    - option_fg_color (str): The foreground color of the options.
-    - option_bg_color (str): The background color of the options.
-    - hover_fg_color (str): The foreground color of the hovered option.
-    - hover_bg_color (str): The background color of the hovered option.
-    - selected_indicator_fg_color (str): The foreground color of the selected options.
-    - selected_indicator_bg_color (str): The background color of the selected options.
 
-    Returns:
-    - list: The list of chosen options.
+    :param prompt: The question to ask the user.
+    :type prompt: str
+    :param choices: The list of choices to present to the user.
+    :type choices: list
+    :param prompt_fg_color: The foreground color of the prompt text.
+    :type prompt_fg_color: str
+    :param prompt_bg_color: The background color of the prompt text.
+    :type prompt_bg_color: str
+    :param option_fg_color: The foreground color of the options.
+    :type option_fg_color: str
+    :param option_bg_color: The background color of the options.
+    :type option_bg_color: str
+    :param hover_fg_color: The foreground color of the hovered option.
+    :type hover_fg_color: str
+    :param hover_bg_color: The background color of the hovered option.
+    :type hover_bg_color: str
+    :param selected_indicator_fg_color: The foreground color of the selected options.
+    :type selected_indicator_fg_color: str
+    :param selected_indicator_bg_color: The background color of the selected options.
+    :type selected_indicator_bg_color: str
+
+    :return: The list of chosen options.
+    :rtype: list
+
+    :examples:
+        >>> result = multi_choice_question_interactive(
+                        "Choose your favorite colors:", ["red", "green", "blue"]
+                     )
+        Please choose one or more of the following options
+        (use arrows to navigate, space to select, Enter to finish):
+          > red
+            green
+            blue
+        Press Enter to finish.
+        >>> print(result)
+        ["red"]
+
+        >>> result = multi_choice_question_interactive(
+                        "Choose your favorite colors:", ["red", "green", "blue"]
+                     )
+        Please choose one or more of the following options
+        (use arrows to navigate, space to select, Enter to finish):
+            red
+          > green
+            blue
+        Press Enter to finish.
+        >>> print(result)
+        ["green"]
+
+        >>> result = multi_choice_question_interactive(
+                        "Choose your favorite colors:", ["red", "green", "blue"]
+                     )
+        Please choose one or more of the following options
+        (use arrows to navigate, space to select, Enter to finish):
+            red
+            green
+          > blue
+        Press Enter to finish.
+        >>> print(result)
+        ["blue"]
+
+        >>> result = multi_choice_question_interactive(
+                        "Choose your favorite colors:", ["red", "green", "blue"]
+                     )
+        Please choose one or more of the following options
+        (use arrows to navigate, space to select, Enter to finish):
+            red
+            green
+            blue
+        Press Enter to finish.
+        >>> print(result)
+        []
     """
 
     def draw_menu(stdscr, selected_idx, selected_choices):

@@ -109,3 +109,8 @@ pypi-release:
 	@$(PYTHON) -m build
 	$(info Publishing to pypi.org...)
 	@$(PYTHON) -m twine upload dist/* --verbose
+
+
+# docs
+documentation:
+	$(VENV)sphinx-build -b html docs/ docs/_build
