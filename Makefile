@@ -112,11 +112,13 @@ tag:
 		echo "Please specify version: make tag version=X.Y.Z"; \
 		exit 1; \
 	fi
-	@echo "Updating version to $(version)..."
+	$(info Updating version to $(version)...)
 	@sed -i '' 's/version = "[0-9]*\.[0-9]*\.[0-9]*"/version = "$(version)"/' pyproject.toml
+	$(info Committing and tagging...)
 	@git add pyproject.toml
 	@git commit -m "build: bump version to $(version)"
 	@git tag -a v$(version) -m "Version $(version)"
+	$(info Pushing commit and tag...)
 	@git push origin main
 	@git push origin v$(version)
 	@echo "Version $(version) has been tagged and pushed"
