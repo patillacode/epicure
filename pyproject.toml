@@ -3,8 +3,8 @@ requires = ["setuptools", "setuptools-scm"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "epicure"
-version = "0.0.4"
+name = "epicure-utils"
+version = "0.0.1"
 description = "A common utils Python library. Don't write that one little function again!"
 authors = [{name = "Patilla Code", email = "patillacode@gmail.com"}]
 license = {text = "GNU General Public License v3 (GPLv3)"}
@@ -21,6 +21,9 @@ dynamic = ["dependencies", "optional-dependencies"]
 [tool.setuptools.dynamic]
 dependencies = { file = ["requirements/production.txt"] }
 optional-dependencies.test = { file = ["requirements/development.txt", "requirements/test.txt"] }
+
+[tool.setuptools.packages.find]
+include = ["epicure*"]
 
 [tool.pytest.ini_options]
 pythonpath = ["."]
