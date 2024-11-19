@@ -34,11 +34,11 @@ def ask_yes_no_question(
         raise ValueError("Invalid default answer. Must be 'yes' or 'no'.")
 
     default_prompt = " [Y/n]" if default in valid_yes else " [y/N]"
-    full_prompt = f"{prompt}{default_prompt}: "
+    full_prompt = f"{prompt}{default_prompt}:"
 
     while True:
         colored_print(
-            full_prompt, fg_color=prompt_fg_color, bg_color=prompt_bg_color, end=""
+            full_prompt, fg_color=prompt_fg_color, bg_color=prompt_bg_color, end=" "
         )
 
         response = input().strip()

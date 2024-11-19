@@ -77,7 +77,7 @@ colored_print("Hello, World!", fg_color="magenta", bg_color="black")
 To see an interactive example of all the things available, run the following command:
 
 ```bash
-python -m demo.demo
+python -m epicure.demo
 ```
 
 
