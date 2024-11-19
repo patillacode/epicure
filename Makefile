@@ -6,7 +6,7 @@ PYTHON = $(VENV)python
 PYTHON_GLOBAL = python3
 VENV = venv/bin/
 
-.PHONY: demo install reset-requirements
+.PHONY: demo install reset-requirements tag
 
 
 # utils
@@ -25,10 +25,6 @@ upgrade-pip:
 install-package:
 	$(info Installing package in editable mode...)
 	@$(PIP) install -e .
-
-tag:
-	$(info Tagging commit...)
-	@$(GIT) tag v$(shell $(BAMP) current)
 
 current-branch:
 	@$(GIT) rev-parse --abbrev-ref HEAD
@@ -90,6 +86,7 @@ test-requirements: build-test-requirements install-test-requirements
 
 reset-requirements: delete-requirements-txt build-requirements
 
+# build & release
 test-pypi-release:
 	$(info Removing old build...)
 	rm -rf dist/ build/ *.egg-info/
@@ -110,6 +107,19 @@ pypi-release:
 	$(info Publishing to pypi.org...)
 	@$(PYTHON) -m twine upload dist/* --verbose
 
+tag:
+	@if [ -z "$(version)" ]; then \
+		echo "Please specify version: make tag version=X.Y.Z"; \
+		exit 1; \
+	fi
+	@echo "Updating version to $(version)..."
+	@sed -i '' 's/version = "[0-9]*\.[0-9]*\.[0-9]*"/version = "$(version)"/' pyproject.toml
+	@git add pyproject.toml
+	@git commit -m "build: bump version to $(version)"
+	@git tag -a v$(version) -m "Version $(version)"
+	@git push origin main
+	@git push origin v$(version)
+	@echo "Version $(version) has been tagged and pushed"
 
 # docs
 documentation:
