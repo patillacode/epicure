@@ -10,11 +10,10 @@ def read_json(file_path: str) -> dict:
     :return: The content of the JSON file as a dictionary.
     :rtype: dict
 
-    :raises:
-        FileNotFoundError: If the file is not found.
-        PermissionError: If read permission is denied.
-        IsADirectoryError: If file_path is a directory.
-        JSONDecodeError: If the file is not a valid JSON file.
+    :raises: FileNotFoundError: If the file is not found.
+    :raises: PermissionError: If read permission is denied.
+    :raises: IsADirectoryError: If file_path is a directory.
+    :raises: JSONDecodeError: If the file is not a valid JSON file.
 
     :examples:
         >>> users = read_json("users.json")
@@ -64,10 +63,9 @@ def write_json(file_path: str, data: dict) -> None:
     :return: True if the file was written successfully.
     :rtype: bool
 
-    :raises:
-        FileNotFoundError: If the directory doesn't exist
-        PermissionError: If write permission is denied
-        IsADirectoryError: If file_path is a directory
+    :raises: FileNotFoundError: If the directory doesn't exist
+    :raises: PermissionError: If write permission is denied
+    :raises: IsADirectoryError: If file_path is a directory
 
     :examples:
         >>> users = {
