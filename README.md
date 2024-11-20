@@ -1,6 +1,6 @@
 | Latest Version | Downloads | Tests |
 |----------------|-----------|-------|
-| [![PyPI version](pypi-badge.svg)](https://pypi.org/project/epicure-utils) | [![Downloads](https://pepy.tech/badge/epicure-utils)](https://pepy.tech/project/epicure-utils) | [![cov](https://raw.githubusercontent.com/patillacode/epicure/main/coverage.svg)](https://github.com/patillacode/epicure/actions) |
+| [![PyPI version](https://raw.githubusercontent.com/patillacode/epicure/refs/heads/main/pypi-badge.svg)](https://pypi.org/project/epicure-utils/) | [![Downloads](https://pepy.tech/badge/epicure-utils)](https://pepy.tech/project/epicure-utils) | [![cov](https://raw.githubusercontent.com/patillacode/epicure/main/coverage.svg)](https://github.com/patillacode/epicure/actions) |
 
 # epicure
 
