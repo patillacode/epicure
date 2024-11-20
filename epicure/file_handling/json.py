@@ -15,7 +15,6 @@ def read_json(file_path: str) -> dict:
         PermissionError: If read permission is denied.
         IsADirectoryError: If file_path is a directory.
         JSONDecodeError: If the file is not a valid JSON file.
-        OSError: If OS-level error occurs.
 
     :examples:
         >>> users = read_json("users.json")
@@ -48,10 +47,10 @@ def read_json(file_path: str) -> dict:
         raise PermissionError(f"Permission denied: {file_path}")
     except IsADirectoryError:
         raise IsADirectoryError(f"Is a directory: {file_path}")
-    except json.JSONDecodeError:
-        raise json.JSONDecodeError(f"Invalid JSON file: {file_path}")
-    except OSError as e:
-        raise OSError(f"OS error occurred: {e}")
+    except json.JSONDecodeError as error:
+        raise json.JSONDecodeError(
+            f"Invalid JSON file: {file_path}", error.doc, error.pos
+        )
 
 
 def write_json(file_path: str, data: dict) -> None:
@@ -69,7 +68,6 @@ def write_json(file_path: str, data: dict) -> None:
         FileNotFoundError: If the directory doesn't exist
         PermissionError: If write permission is denied
         IsADirectoryError: If file_path is a directory
-        OSError: If OS-level error occurs
 
     :examples:
         >>> users = {
@@ -117,5 +115,3 @@ def write_json(file_path: str, data: dict) -> None:
         raise PermissionError(f"Permission denied: {file_path}")
     except IsADirectoryError:
         raise IsADirectoryError(f"Is a directory: {file_path}")
-    except OSError as e:
-        raise OSError(f"OS error occurred: {e}")

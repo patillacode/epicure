@@ -1,6 +1,4 @@
 <!-- Utility functions -->
-- read_json_file(file_path: str) -> dict
-- write_json_file(file_path: str, data: dict) -> None
 - validate_url_format(url: str) -> bool
 - download_file_from_url(url: str, dest_path: str) -> None
 - get_environment_variable(var_name: str, default: str) -> str
