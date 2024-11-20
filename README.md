@@ -82,13 +82,9 @@ python -m epicure.demo
 
 The documentation is generated using Sphinx.
 
-Please generate the documentation by running the following command:
+You can find the documentation online at [readthedocs](https://epicure.readthedocs.io/en/latest/).
 
-```bash
-make documentation
-```
-
-The documentation will be available in the `docs` folder, open the `index.html` file in your browser to see the documentation.
+If you prefer to read the documentation locally, it will be available in the `docs` folder, open the `index.html` file in your browser to see the documentation.
 
 
 ### Features
