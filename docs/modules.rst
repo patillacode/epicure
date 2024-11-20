@@ -1,6 +1,15 @@
 epicure
 =======
 
+
+json
+====
+
+.. automodule:: epicure.file_handling
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 input
 =====
 

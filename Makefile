@@ -36,6 +36,7 @@ push:
 
 install: create-venv upgrade-pip install-development-requirements install-package
 
+
 # tests
 test:
 	$(info Running tests...)
@@ -45,7 +46,6 @@ coverage-report:
 	@$(COVERAGE) run -m pytest -x
 	@$(COVERAGE) json -o "coverage-summary.json"
 	@$(COVERAGE) report -m
-
 
 
 # requirements
@@ -86,6 +86,7 @@ test-requirements: build-test-requirements install-test-requirements
 
 reset-requirements: delete-requirements-txt build-requirements
 
+
 # build & release
 test-pypi-release:
 	$(info Removing old build...)
@@ -124,6 +125,7 @@ tag:
 	@git push origin main
 	@git push origin v$(version)
 	@echo "Version $(version) has been tagged and pushed"
+
 
 # docs
 documentation:
