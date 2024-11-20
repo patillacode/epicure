@@ -114,8 +114,10 @@ tag:
 	fi
 	$(info Updating version to $(version)...)
 	@sed -i '' 's/version = "[0-9]*\.[0-9]*\.[0-9]*"/version = "$(version)"/' pyproject.toml
+	$(info Generating pypi badge...)
+	@$(PYTHON) -m pybadges --left-text=pypi --right-text=$(version) --right-color='green' > pypi-badge.svg
 	$(info Committing and tagging...)
-	@git add pyproject.toml
+	@git add pyproject.toml pypi-badge.svg
 	@git commit -m "build: bump version to $(version)"
 	@git tag -a v$(version) -m "Version $(version)"
 	$(info Pushing commit and tag...)
