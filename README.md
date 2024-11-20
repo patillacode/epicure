@@ -28,9 +28,6 @@ I usually end up writing the same little utils over and over again, so I decided
 
 #### Plug & Play:
 ```bash
-# Install via pipx
-pipx install epicure-utils
-
 # Install via pip
 pip install epicure-utils
 ```
