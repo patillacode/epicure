@@ -107,6 +107,12 @@ If you prefer to read the documentation locally, it will be available in the `do
 
 ----
 
+##### `file_handling`
+- `read_json`: Read a JSON file.
+- `write_json`: Write a JSON file.
+
+----
+
 **And more to come...!**
 
 
