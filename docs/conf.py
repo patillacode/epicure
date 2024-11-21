@@ -34,3 +34,16 @@ exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 # html_theme = "alabaster"
 html_theme = "sphinx_rtd_theme"
 html_static_path = ["_static"]
+html_theme_options = {
+    "style_external_links": True,
+    "navigation_depth": 4,
+}
+
+# Add GitHub banner
+html_context = {
+    "display_github": True,  # Integrate GitHub
+    "github_user": "patillacode",  # Username
+    "github_repo": "epicure",  # Repo name
+    "github_version": "main",  # Branch
+    "conf_py_path": "/docs/",  # Path in the checkout to the docs root
+}

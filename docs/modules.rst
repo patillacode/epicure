@@ -1,6 +1,17 @@
 epicure
 =======
 
+`epicure` is a collection of useful python methods and utils with no dependencies other than the Python standard library.
+Never write the same little utils again!
+
+json
+====
+
+.. automodule:: epicure.file_handling
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 input
 =====
 

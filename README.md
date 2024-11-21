@@ -14,7 +14,7 @@ a person who takes particular pleasure in fine food and drink.
 
 ### What?
 
-`epicure` is a collection of useful python methods and utils I tend to use in my personal projects.
+`epicure` is a collection of useful python methods and utils with no dependencies other than the Python standard library. Never write the same little utils again!
 
 
 ### Why?
@@ -36,7 +36,7 @@ pip install epicure-utils
 
 Clone the repository:
 ```bash
-git clone https://github.com/dvitto/epicure.git
+git clone https://github.com/patillacode/epicure.git
 cd epicure
 ```
 
@@ -92,19 +92,6 @@ If you prefer to read the documentation locally, it will be available in the `do
 - The package is organized in modules, so you can import only the methods you need.
 - No dependencies other than the Python standard library.
 
-#### Available Modules and Methods
-
-##### `output`
-- `colored_print`: Print colored text in the terminal.
-
-----
-
-##### `input`
-- `ask_yes_no_question`: Ask the user a yes/no question.
-- `multi_choice_question`: Ask the user to choose one option from a list of choices.
-- `multi_choice_question_interactive`: Ask the user to choose multiple options from a list of choices. (works on Linux and macOS)
-- `simple_choice_question`: Ask the user to choose multiple options from a list of choices using an interactive menu.
-
 ----
 
 **And more to come...!**
@@ -138,7 +125,7 @@ pip install -r install -r requirements/test.txt
 ```
 
 ### Known Issues
-`multi_choice_question_interactive` does not work on Windows by default. You need to install the `windows-curses` package to use it on Windows.
+- `multi_choice_question_interactive` does not work on Windows by default. You need to install the `windows-curses` package to use it on Windows.
 
 ### Acknowledgments
 - Python community, for the amazing libraries and tools they provide.
@@ -148,6 +135,13 @@ Contributions are welcome!
 
 If you have a feature request, bug report, or a pull request, please open an issue or submit a PR.
 
+If you plan on submitting a PR, I recommend following this list to develop a new feature or fix a bug:
+
+- implement the feature or fix the bug (remember to follow the code style, typing and docstrings)
+- add full tests for the new feature or bug fix
+- make sure the tests pass (and coverage is not decreased)
+- recreate documentation
+- maybe add an example in the demo script
 
 ### License
 
