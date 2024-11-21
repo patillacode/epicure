@@ -1,6 +1,8 @@
 epicure
 =======
 
+`epicure` is a collection of useful python methods and utils with no dependencies other than the Python standard library.
+Never write the same little utils again!
 
 json
 ====

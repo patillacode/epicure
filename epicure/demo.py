@@ -13,7 +13,7 @@ from epicure.output import colored_print
 def welcome():
     colored_print("WELCOME TO THE EPICURE DEMO!", "magenta", "black", end="\n\n")
     colored_print(
-        "All documentation is accessible at https://github.com/patillacode/epicure",
+        "All documentation is accessible at https://epicure.readthedocs.io/en/latest/",
         "yellow",
         "black",
     )
