@@ -36,7 +36,7 @@ pip install epicure-utils
 
 Clone the repository:
 ```bash
-git clone https://github.com/dvitto/epicure.git
+git clone https://github.com/patillacode/epicure.git
 cd epicure
 ```
 
